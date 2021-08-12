@@ -1,5 +1,6 @@
 package com.mplr.rappimovie.viewmodel
 
+import androidx.compose.runtime.mutableStateOf
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import com.mplr.rappimovie.models.PopularMovie
@@ -15,9 +16,7 @@ class MainViewModel @Inject constructor(
     var movieRepository: MovieRepository
 ) : ViewModel() {
 
-    val popularMovies: MutableLiveData<PopularMovie> by lazy {
-        MutableLiveData<PopularMovie>()
-    }
+    val popularMovies =  mutableStateOf(PopularMovie())
 
     private val compositeDisposable = CompositeDisposable()
 
@@ -35,7 +34,7 @@ class MainViewModel @Inject constructor(
     }
 
     private fun setPopularMovies(data: PopularMovie) {
-        popularMovies.postValue(data)
+        popularMovies.value = data
     }
 
     override fun onCleared() {

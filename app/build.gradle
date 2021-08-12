@@ -134,7 +134,7 @@ dependencies {
     implementation "com.squareup.okhttp3:logging-interceptor:$loginInterceptor"
 
     // Glide
-    implementation "com.github.bumptech.glide:glide:$glideVersion"
+    implementation "com.github.skydoves:landscapist-glide:$glideVersion"
 
     // Airbnb
     implementation("com.airbnb.android:lottie:$airbnbLottieVersion") {
