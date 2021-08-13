@@ -3,6 +3,7 @@ package com.mplr.rappimovie.viewmodel
 import androidx.compose.runtime.mutableStateOf
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
+import com.mplr.rappimovie.models.Movie
 import com.mplr.rappimovie.models.PopularMovie
 import com.mplr.rappimovie.repositories.MovieRepository
 import dagger.hilt.android.lifecycle.HiltViewModel
@@ -36,6 +37,10 @@ class MainViewModel @Inject constructor(
     private fun setPopularMovies(data: PopularMovie) {
         popularMovies.value = data
     }
+
+    fun setCurrentMovie(movie: Movie) = movieRepository.setCurrentMovie(movie)
+
+    fun getCurrentMovie() = movieRepository.getCurrentMovie()
 
     override fun onCleared() {
         compositeDisposable.clear()
